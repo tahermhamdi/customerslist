@@ -4,7 +4,7 @@ var mongojs = require("mongojs");
 //var db = mongojs("customerslist", ["customers"]);
 var db = mongojs(
     "mongodb://tahermhamdi@ds247330.mlab.com:47330/customerslist",
-    ["customers"]
+    [""]
 );
 
 var bodyParser = require("body-parser");
