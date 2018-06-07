@@ -1,0 +1,74 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+<head>
+    <title>Customers List App</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<style>
+    html 					{ overflow-y:scroll; }
+    body 					{ padding-top:20px; align:center;}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<script src="jquery-3.3.1.min.js"></script>
+<script src="jquery-ui.min.js"></script>
+<script>
+$(function() {
+    $("#datepicker").datepicker({ dateFormat: "yy-dd-mm" });
+});
+</script>
+</head>
+<body>
+<div ng-controller="AppCtrl" class="table-responsive">
+    <h1>Customers List App</h1>
+
+
+    <table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Birthday</th>
+            <th>Gender</th>
+            <th>Customer Lifetime Value</th>
+            <th>Last Contact</th>
+            <th>&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td><input class="form-control" ng-model="customer.name.first"></td>
+            <td><input class="form-control" ng-model="customer.name.last"></td>
+            <td><input class="form-control" id="datepicker" ng-model="customer.birthday"></td>
+             <td><select class="form-control" ng-model="customer.gender">
+             <option value="">By Gender</option>
+               <option value="w">Woman</option>
+               <option value="m">Man</option>
+               <option value="o">Other</option>
+             </select></td>
+              <td><input class="form-control" type="number" ng-model="customer.customerLifetimeValue"></td>
+              <td>&nbsp;</td>
+            <td><button class="btn btn-primary" ng-click="addCustomer()">Add customer</button></td>
+            <td><button class="btn btn-info" ng-click="update()">Update</button><br/><button class="btn btn-info" ng-click="deselect()">Clear</button></td
+        </tr>
+            <tr ng-repeat="customer in customerslist">
+            <td>{{customer.name.first}}</td>
+            <td>{{customer.name.last}}</td>
+            <td>{{customer.birthday}}</td>
+            <td>{{customer.gender}}</td>
+            <td>{{customer.customerLifetimeValue}}</td>
+            <td>{{customer.lastContact}}</td>
+            <td><button class="btn btn-danger" ng-click="remove(customer._id)">Remove</button></td>
+            <td><button class="btn btn-warning" ng-click="edit(customer._id)">Edit</button></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+    </div>
+
+<script src="angular.min.js"></script>
+<script src="controllers/controller.js"></script>
+</body>
+</html>
