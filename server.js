@@ -3,7 +3,7 @@ var app = express();
 var mongojs = require("mongojs");
 //var db = mongojs("customerslist", ["customers"]);
 var db = mongojs(
-    "mongodb://tahermhamdi@ds247330.mlab.com:47330/customerslist",
+    "mongodb://tahermhamdi:thetool2@ds247330.mlab.com:47330/customerslist",
     [""]
 );
 
