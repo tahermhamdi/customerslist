@@ -68,5 +68,6 @@ app.put("/customerslistapp/:id", function(req, res) {
     }
 });
 
-app.listen(8080);
-console.log("Server running in the port 8080");
+app.listen(process.env.PORT || 8080, () => {
+    console.log("Server running in the port 8080");
+});
